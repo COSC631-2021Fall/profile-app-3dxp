@@ -1,0 +1,28 @@
+.experience-card {
+    text-align: left;
+    margin: 15px;
+}
+
+.experience-card-image {
+    vertical-align:middle;
+    height: auto;
+    width: 40px;
+}
+
+.experience-card-title {
+    font-size-adjust: 1;
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+
+.experience-card-content {
+    font-size-adjust: initial;
+}
+
+.experience-card-range {
+    font-size-adjust: 0.4;
+}
+
+.experience-card-tags {
+    font-size-adjust: 0.3;
+}
