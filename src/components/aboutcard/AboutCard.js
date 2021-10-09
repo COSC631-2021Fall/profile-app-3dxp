@@ -1,35 +1,32 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import "./AboutCard.css"
 
-export class AboutCard extends Component {
+export function AboutCard(props) {
 
-    static defaultProps = {
-        country: null,
-        timeZone: null
-    }
-
-    render() {
-        return(
-            <div className="about-card">
-                <span>Country: {this.props.country}</span>
-                <span>Time Zone: {this.props.timeZone}</span>
-            </div>
-        );
-    }
+    return(
+        <div className="about-card">
+            <span>Country: {props.country}</span>
+            <span>Time Zone: {props.timeZone}</span>
+        </div>
+    );
 }
 
-export class ContactCard extends Component {
+AboutCard.defaultProps = {
+    country: null,
+    timezone: null
+}
 
-    static defaultProps = {
-        phone: null,
-        email: null,
-    }
-    render(){
-        return (
-            <div className="contact-card">
-                <span>Phone: {this.props.phone}</span>
-                <span>E-Mail: {this.props.email}</span>
-            </div>
-        );
-    }
+export function ContactCard(props){
+    useEffect(() => document.title = `Contact Me @ ${props.phone}`)
+    return (
+        <div className="contact-card">
+            <span>Phone: {props.phone}</span>
+            <span>E-Mail: {props.email}</span>
+        </div>
+    );
+}
+
+ContactCard.defaultProps = {
+    phone: null,
+    email: null,
 }

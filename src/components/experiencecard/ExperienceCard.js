@@ -1,36 +1,35 @@
-import React, {Component} from 'react';
 import "./ExperienceCard.css"
+import {useState} from "react";
 
-export default class ExperienceCard extends Component {
+export default function ExperienceCard(props){
+    const [isSelected, toggle] = useState(false);
 
-    static defaultProps = {
-        image: null,
-        title: null,
-        content: null,
-        from: null,
-        until: null,
-        tags: null,
-    }
+    const image = props.image && <img className="experience-card-image" src={props.image} alt="Company Logo"/>
+    const title = props.title && <span className="experience-card-title">{props.title}</span>
+    const range = (props.from && props.until) && <div className="experience-card-range">{props.from} - {props.until}</div>
+    const content = props.content && <div className="experience-card-content">{props.content}</div>
+    const tags = props.tags && <div className="experience-card-tags">Tags: {props.tags}</div>
 
-    renderBody(){
-        const image = this.props.image && <img className="experience-card-image" src={this.props.image} alt="Company Logo"/>
-        const title = this.props.title && <span className="experience-card-title">{this.props.title}</span>
-        const range = (this.props.from && this.props.until) && <div className="experience-card-range">{this.props.from} - {this.props.until}</div>
-        const content = this.props.content && <div className="experience-card-content">{this.props.content}</div>
-        const tags = this.props.tags && <div className="experience-card-tags">Tags: {this.props.tags}</div>
+    return (
+        <div
+            className="experience-card"
+            style={{backgroundColor:isSelected ? 'green' : 'transparent'}}
+            onClick={() => toggle(!isSelected)}
+        >
+            {image}
+            {title}
+            {range}
+            {content}
+            {tags}
+        </div>
+    );
+}
 
-        return (
-            <div className="experience-card">
-                {image}
-                {title}
-                {range}
-                {content}
-                {tags}
-            </div>
-        );
-    }
-
-    render() {
-        return this.renderBody();
-    }
+ExperienceCard.defaultProps = {
+    image: null,
+    title: null,
+    content: null,
+    from: null,
+    until: null,
+    tags: null,
 }

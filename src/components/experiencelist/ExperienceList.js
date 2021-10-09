@@ -17,6 +17,7 @@ export class ExperienceList extends Component {
     }
 
     render() {
+        document.title = "My Experience"
         return(
             <div className="experience-list">
                 {this.props.cards.map((card) =>

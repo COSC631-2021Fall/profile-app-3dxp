@@ -1,6 +1,5 @@
 import './App.css';
 import {AppHeader} from "./AppHeader";
-import {AppNav} from "./AppNav";
 import Pages from "./AppRouter";
 import {personalInfo} from "./Data";
 
